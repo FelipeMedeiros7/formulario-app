@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Formulário</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+	</head>
+<body ng-app="form">
+	
+	<div class="container">
+		<div class="row">
+			<ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#home">Dados Pessoais do Locatário</a></li>
+			  <li><a data-toggle="tab" href="#menu1">Dados Profissionais do Locatário</a></li>
+			  <li><a data-toggle="tab" href="#menu2">Dados Pessoais do Cônjuge</a></li>
+			  <li><a data-toggle="tab" href="#menu3">Dados Profissionais do Cônjuge</a></li>
+			  <li><a data-toggle="tab" href="#menu4">Dados Complementares</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="tab-content">
+		<div class="container tab-pane fade in active" id="home">
+			<h3>Dados Pessoais do Locatário</h3>
+			<form id="form-control">
+				<div class="row">
+				  <div class="col-xs-4">
+					    <label for="nome">Nome</label>
+					    <input type="text" class="form-control" id="nome">
+				  </div>
+				  <div class="col-xs-4">
+				    	<label for="nacionalidade">Nacionalidade</label>
+				   		<input type="text" class="form-control" id="nacionalidade">
+				  </div>
+				  <div class="col-xs-4">
+				  		<label for="email">Email</label>
+				  		<input type="email" class="form-control" name="email" id="email">
+				  </div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12"> 
+						<label for="endereco">Endereço</label>
+						<input type="text" class="form-control" name="endereco" id="endereco">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="cep">CEP</label>
+						<input type="text" class="form-control" name="cep" id="cep" ng-model="initializedCpf" ui-br-cep-mask>
+					</div>
+					<div class="col-xs-4">
+						<label for="cidade">Cidade</label>
+						<input type="text" class="form-control" name="cidade" id="cidade">
+					</div>
+					<div class="col-xs-2">
+						<label for="estado">Estado</label>
+						<input type="text" class="form-control" name="estado" id="estado">
+					</div>
+					<div class="col-xs-4">
+						<label for="telefone">Telefone</label>
+						<input type="text" class="form-control" name="telefone" id="telefone" ng-model="phoneNumber" ui-br-phone-number>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12"> 
+						<label for="endereco-anterior">Endereço Anterior</label>
+						<input type="text" class="form-control" name="endereco-anterior" id="endereco-anterior">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="cep">CEP</label>
+						<input type="text" class="form-control" name="cep" id="cep">
+					</div>
+					<div class="col-xs-4">
+						<label for="cidade">Cidade</label>
+						<input type="text" class="form-control" name="cidade" id="cidade">
+					</div>
+					<div class="col-xs-2">
+						<label for="estado">Estado</label>
+						<input type="text" class="form-control" name="estado" id="estado">
+					</div>
+					<div class="col-xs-4">
+						<label for="telefone">Telefone</label>
+						<input type="text" class="form-control" name="telefone" id="telefone">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<h4>Filiação</h4>
+					</div>
+					<div class="col-xs-6"> 
+						<label for="pai">Pai</label>
+						<input type="text" class="form-control" name="pai" id="pai">
+					</div>
+					<div class="col-xs-6">
+						<label for="mae">Mãe</label>
+						<input type="text" class="form-control" name="mae" id="mae">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-4">
+						<label for="data-nascimento">Data de Nascimento</label>
+						<input type="date" class="form-control" name="data-nascimento" id="data-nascimento">
+					</div>
+					<div class="col-xs-8">
+						<label for="local">Local</label>
+						<input type="text" class="form-control" name="local" id="local">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-4">
+						<label for="identidade">Identidade</label>
+						<input type="text" class="form-control" name="identidade" id="identidade">
+					</div>
+					<div class="col-xs-4">
+						<label for="orgao-emissor">Orgão Emissor</label>
+						<select class="form-control">
+							<option>Selecione</option>
+							<option value="SSP">SSP  - Secretaria de Segurança Pública</option>
+							<option value="PM">PM   - Polícia Militar</option>
+							<option value="PC">PC   - Policia Civil</option>
+							<option value="CBM">CBM – Corpo de Bombeiro Militar</option>
+							<option value="CNT">CNT  - Carteira Nacional de Habilitação</option>
+							<option value="DIC">DIC  - Diretoria de Identificação Civil</option>
+							<option value="CTPS">CTPS - Carteira de Trabaho e Previdência Social</option>
+							<option value="FGTS">FGTS - Fundo de Garantia do Tempo de Serviço</option>
+							<option value="IFP">IFP  - Instituto Félix Pacheco</option>
+							<option value="IPF">IPF  - Instituto Pereira Faustino</option>
+							<option value="IML">IML  - Instituto Médico-Legal</option>
+							<option value="MTE">MTE  - Ministério do Trabalho e Emprego</option>
+							<option value="MMA">MMA  - Ministério da Marinha</option>
+							<option value="MAE">MAE  - Ministério da Aeronáutica</option>
+							<option value="MEX">MEX  - Ministério do Exército</option>
+							<option value="POF">POF  - Polícia Federal</option>
+							<option value="POM">POM  - Polícia Militar</option>
+							<option value="SES">SES  - Carteira de Estrangeiro</option>
+							<option value="SJS">SJS  - Secretaria da Justiça e Segurança</option>
+							<option value="SJTS">SJTS - Secretaria da Justiça do Trabalho e Segurança</option>
+							<option value="SDS">SDS  - Secretaria de Defesa Social</option>
+							<option value="ZZZ">ZZZ  - Outros (inclusive exterior)</option>
+						</select>
+					</div>
+					<div class="col-xs-4">
+						<label for="cic">C.I.C.</label>
+						<input type="text" class="form-control" name="cic" id="cic">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-3">
+						<label for="estado-civil">Estado Civil</label>
+						<select class="form-control">
+							<option>Selecione</option>
+							<option value="Solteiro">Solteiro(a)</option>
+							<option value="Casado">Casado(a)</option>
+							<option value="Seprado">Separado(a)</option>
+							<option value="Divorciado">Divorciado(a)</option>
+							<option value="Viuvo">Viúvo(a)</option>
+						</select>
+					</div>
+					<div class="col-xs-9">
+						<label for="profissao">Profissão</label>
+						<input type="text" class="form-control" name="profissao" id="profissao">
+					</div>
+					</form>
+				</div>
+			</div>
+				
+		<div class="container tab-pane fade" id="menu1">
+			<h3>Dados Profissionais do Locatário</h3>	
+					<div class="row">
+					  	<div class="col-xs-6">
+						    <label for="Empresa">Empresa</label>
+						    <input type="text" class="form-control" id="Empresa">
+					  	</div>
+					 	<div class="col-xs-6">
+					    	<label for="Endereço">Endereço</label>
+					   		<input type="text" class="form-control" id="Endereço">
+					  </div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-2">
+							<label for="cep">CEP</label>
+							<input type="text" class="form-control" name="cep" id="cep">
+						</div>
+						<div class="col-xs-4">
+							<label for="cidade">Cidade</label>
+							<input type="text" class="form-control" name="cidade" id="cidade">
+						</div>
+						<div class="col-xs-2">
+							<label for="estado">Estado</label>
+							<input type="text" class="form-control" name="estado" id="estado">
+						</div>
+						<div class="col-xs-4">
+							<label for="telefone">Telefone</label>
+							<input type="text" class="form-control" name="telefone" id="telefone">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-8">
+							<label for="cargo">Cargo</label>
+							<input type="text" class="form-control" name="cargo" id="cargo"> 
+						</div>
+						<div class="col-xs-4">
+							<label for="data-admissao">Data de Admissão</label>
+							<input type="date" class="form-control" name="data-admissao" id="data-admissao">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<label for="salario">Salário</label>
+							<input type="text" class="form-control" name="salario" id="salario" placeholder="Amount">
+						</div>
+						<div class="col-xs-6">
+							<label for="outras-rendas">Outras Rendas</label>
+							<input type="text" class="form-control" name="outras-rendas" id="outras-rendas" placeholder="Amount">
+						</div>
+					</div>
+		</div>
+
+		<div class="container tab-pane fade" id="menu2">
+			<h3>Dados Pessoais do Cônjuge</h3>
+				<div class="row">
+					  <div class="col-xs-4">
+						    <label for="nome">Nome</label>
+						    <input type="text" class="form-control" id="nome">
+					  </div>
+					  <div class="col-xs-4">
+					    	<label for="nacionalidade">Nacionalidade</label>
+					   		<input type="text" class="form-control" id="nacionalidade">
+					  </div>
+					  <div class="col-xs-4">
+				  		<label for="email">Email</label>
+				  		<input type="email" class="form-control" name="email" id="email">
+				  </div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12"> 
+							<label for="endereco">Endereço</label>
+							<input type="text" class="form-control" name="endereco" id="endereco">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-2">
+							<label for="cep">CEP</label>
+							<input type="text" class="form-control" name="cep" id="cep">
+						</div>
+						<div class="col-xs-4">
+							<label for="cidade">Cidade</label>
+							<input type="text" class="form-control" name="cidade" id="cidade">
+						</div>
+						<div class="col-xs-2">
+							<label for="estado">Estado</label>
+							<input type="text" class="form-control" name="estado" id="estado">
+						</div>
+						<div class="col-xs-4">
+							<label for="telefone">Telefone</label>
+							<input type="text" class="form-control" name="telefone" id="telefone">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<h4>Filiação</h4>
+						</div>
+						<div class="col-xs-6"> 
+							<label for="pai">Pai</label>
+							<input type="text" class="form-control" name="pai" id="pai">
+						</div>
+						<div class="col-xs-6">
+							<label for="mae">Mãe</label>
+							<input type="text" class="form-control" name="mae" id="mae">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-4">
+							<label for="data-nascimento">Data de Nascimento</label>
+							<input type="date" class="form-control" name="data-nascimento" id="data-nascimento">
+						</div>
+						<div class="col-xs-8">
+							<label for="local">Local</label>
+							<input type="text" class="form-control" name="local" id="local">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-4">
+							<label for="identidade">Identidade</label>
+							<input type="text" class="form-control" name="identidade" id="identidade">
+						</div>
+						<div class="col-xs-4">
+							<label for="orgao-emissor">Orgão Emissor</label>
+							<select class="form-control">
+								<option>Selecione</option>
+								<option value="SSP">SSP  - Secretaria de Segurança Pública</option>
+								<option value="PM">PM   - Polícia Militar</option>
+								<option value="PC">PC   - Policia Civil</option>
+								<option value="CBM">CBM – Corpo de Bombeiro Militar</option>
+								<option value="CNT">CNT  - Carteira Nacional de Habilitação</option>
+								<option value="DIC">DIC  - Diretoria de Identificação Civil</option>
+								<option value="CTPS">CTPS - Carteira de Trabaho e Previdência Social</option>
+								<option value="FGTS">FGTS - Fundo de Garantia do Tempo de Serviço</option>
+								<option value="IFP">IFP  - Instituto Félix Pacheco</option>
+								<option value="IPF">IPF  - Instituto Pereira Faustino</option>
+								<option value="IML">IML  - Instituto Médico-Legal</option>
+								<option value="MTE">MTE  - Ministério do Trabalho e Emprego</option>
+								<option value="MMA">MMA  - Ministério da Marinha</option>
+								<option value="MAE">MAE  - Ministério da Aeronáutica</option>
+								<option value="MEX">MEX  - Ministério do Exército</option>
+								<option value="POF">POF  - Polícia Federal</option>
+								<option value="POM">POM  - Polícia Militar</option>
+								<option value="SES">SES  - Carteira de Estrangeiro</option>
+								<option value="SJS">SJS  - Secretaria da Justiça e Segurança</option>
+								<option value="SJTS">SJTS - Secretaria da Justiça do Trabalho e Segurança</option>
+								<option value="SDS">SDS  - Secretaria de Defesa Social</option>
+								<option value="ZZZ">ZZZ  - Outros (inclusive exterior)</option>
+							</select>
+						</div>
+						<div class="col-xs-4">
+							<label for="cic">C.I.C.</label>
+							<input type="text" class="form-control" name="cic" id="cic">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<label for="profissao">Profissão</label>
+							<input type="text" class="form-control" name="profissao" id="profissao">
+						</div>
+						<div class="col-xs-6">
+							<label for="salario">Salário</label>
+							<input type="text" class="form-control" name="salario" id="salario" placeholder="Amount">
+						</div>
+					</div>
+		</div>
+
+		<div class="container tab-pane fade" id="menu3">
+			<h3>Dados Profissionais do Conjugê</h3>	
+					<div class="row">
+					  	<div class="col-xs-6">
+						    <label for="Empresa">Empresa</label>
+						    <input type="text" class="form-control" id="Empresa">
+					  	</div>
+					 	<div class="col-xs-6">
+					    	<label for="Endereço">Endereço</label>
+					   		<input type="text" class="form-control" id="Endereço">
+					  </div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-2">
+							<label for="cep">CEP</label>
+							<input type="text" class="form-control" name="cep" id="cep">
+						</div>
+						<div class="col-xs-4">
+							<label for="cidade">Cidade</label>
+							<input type="text" class="form-control" name="cidade" id="cidade">
+						</div>
+						<div class="col-xs-2">
+							<label for="estado">Estado</label>
+							<input type="text" class="form-control" name="estado" id="estado">
+						</div>
+						<div class="col-xs-4">
+							<label for="telefone">Telefone</label>
+							<input type="text" class="form-control" name="telefone" id="telefone">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-8">
+							<label for="cargo">Cargo</label>
+							<input type="text" class="form-control" name="cargo" id="cargo"> 
+						</div>
+						<div class="col-xs-4">
+							<label for="data-admissao">Data de Admissão</label>
+							<input type="date" class="form-control" name="data-admissao" id="data-admissao">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<label for="salario">Salário</label>
+							<input type="text" class="form-control" name="salario" id="salario" placeholder="Amount">
+						</div>
+						<div class="col-xs-6">
+							<label for="outras-rendas">Outras Rendas</label>
+							<input type="text" class="form-control" name="outras-rendas" id="outras-rendas" placeholder="Amount">
+						</div>
+					</div>
+		</div>
+
+		<div class="container tab-pane fade" id=menu4>
+			<h3>Dados Complementares</h3>
+			<div class="row">
+				<h4>Possui Propriedades?</h4>
+				<div class="col-xs-12">
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="radio1" id="opcaoRadio1" value="nao">
+							Não
+						</label>
+					</div>
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="radio1" id="opcaoRadio2" value="sim">
+							Sim - Se sim descreva abaixo.
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+				<textarea class="form-control" rows="4"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<h4>Possui Automóvel?</h4>
+				<div class="col-xs-12">
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="radio2" id="opcaoRadio1" value="nao">
+							Não
+						</label>
+					</div>
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="radio2" id="opcaoRadio2" value="sim">
+							Sim - Se sim descreva abaixo.
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<label for="dados">Marca/Modelo/Ano</label>
+					<input type="text" class="form-control" name="dados" id="dados">
+				</div>
+				<div class="col-xs-2">
+					<h5><b>Ônus</b></h5>
+						<div class="radio-inline">
+							<label>
+								<input type="radio" name="radio3" id="opcaoRadio1" value="nao">
+								Não
+							</label>
+						</div>
+						<div class="radio-inline">
+							<label>
+								<input type="radio" name="radio3" id="opcaoRadio2" value="sim">
+								Sim
+							</label>
+						</div>
+					</div>
+
+				<div class="col-xs-2">
+					<h5><b>Seguro?</b></h5>
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="radio4" id="opcaoRadio1" value="nao">
+								Não
+						</label>
+					</div>
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="radio4" id="opcaoRadio2" value="sim">
+								Sim
+						</label>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<label for="seguradora">Seguradora</label>
+					<input type="text" class="form-control" name="seguradora" id="seguradora">
+				</div>
+			</div>
+
+			<h4>Referências Pessoais</h4>
+			<div class="row">
+				<div class="col-xs-5">
+					<label for="nome">Nome</label>
+					<input type="text" class="form-control" name="nome" id="nome">
+				</div>
+				<div class="col-xs-5">
+					<label for="endereco">Endereço</label>
+					<input type="text" class="form-control" name="endereco" id="endereco">
+				</div>
+				<div class="col-xs-2">
+					<label for="telefone">Telefone</label>
+					<input type="text" class="form-control" name="telefone" id="telefone">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-5">
+					<label for="nome">Nome</label>
+					<input type="text" class="form-control" name="nome" id="nome">
+				</div>
+				<div class="col-xs-5">
+					<label for="endereco">Endereço</label>
+					<input type="text" class="form-control" name="endereco" id="endereco">
+				</div>
+				<div class="col-xs-2">
+					<label for="telefone">Telefone</label>
+					<input type="text" class="form-control" name="telefone" id="telefone">
+				</div>
+			</div>
+
+			<h4>Referências Bancárias</h4>
+			<div class="row">
+				<div class="col-xs-3">
+					<label for="banco">Banco</label>
+					<input type="text" class="form-control" name="banco" id="banco">
+				</div>
+				<div class="col-xs-2">
+					<label for="agencia">Agência</label>
+					<input type="text" class="form-control" name="agencia" id="agencia">
+				</div>
+				<div class="col-xs-2">
+					<label for="conta-corrente">Conta Corrente</label>
+					<input type="text" class="form-control" name="conta-corrente" id="conta-corrente">
+				</div>
+				<div class="col-xs-2">
+					<label for="cliente-desde">Cliente Desde</label>
+					<input type="date" class="form-control" name="cliente-desde" id="cliente-desde">
+				</div>
+				<div class="col-xs-3">
+					<label for="telefone">Telefone</label>
+					<input type="text" class="form-control" name="telefone" id="telefone">
+				</div>
+			</div>
+
+			<h4>Referências Comerciais</h4>
+			<div class="row">
+				<div class="col-xs-5">
+					<label for="estabelecimento">Estabelecimento</label>
+					<input type="text" class="form-control" name="estabelecimento" id="estabelecimento">
+				</div>
+				<div class="col-xs-4">
+					<label for="endereco">Endereço</label>
+					<input type="text" class="form-control" name="endereco" id="endereco">
+				</div>
+				<div class="col-xs-3">
+					<label for="telefone">Telefone</label>
+					<input type="text" class="form-control" name="telefone" id="telefone">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+				 	<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.15/angular-locale_pt-br.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="angular-input-masks-master/src/angular-input-masks.br.js" ></script>
+
+	<script>
+		angular.module('form', ['ui.utils.masks']);
+	</script>
+</body>
+</html>
