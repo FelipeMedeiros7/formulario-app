@@ -5,11 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Formulário</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 	</head>
-<body ng-app="form">
+	<body ng-app="form">
 	
 	<div class="container">
 		<div class="row">
@@ -25,12 +26,12 @@
 
 	<div class="tab-content">
 		<div class="container tab-pane fade in active" id="home">
-			<h3>Dados Pessoais do Locatário</h3>
+			<h3 class="title">Dados Pessoais do Locatário</h3>
 			<form id="form-control">
 				<div class="row">
 				  <div class="col-xs-4">
-					    <label for="nome">Nome</label>
-					    <input type="text" class="form-control" id="nome">
+					    <label for="nome-locatario">Nome</label>
+					    <input type="text" class="form-control" name="nome-locatario" id="nome-locatario">
 				  </div>
 				  <div class="col-xs-4">
 				    	<label for="nacionalidade">Nacionalidade</label>
@@ -41,18 +42,16 @@
 				  		<input type="email" class="form-control" name="email" id="email">
 				  </div>
 				</div>
-
 				<div class="row">
 					<div class="col-xs-12"> 
 						<label for="endereco">Endereço</label>
 						<input type="text" class="form-control" name="endereco" id="endereco">
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-xs-2">
 						<label for="cep">CEP</label>
-						<input type="text" class="form-control" name="cep" id="cep" ng-model="initializedCpf" ui-br-cep-mask>
+						<input type="text" class="form-control" name="cep" id="cep" ng-model="cep1" ui-br-cep-mask>
 					</div>
 					<div class="col-xs-4">
 						<label for="cidade">Cidade</label>
@@ -62,12 +61,15 @@
 						<label for="estado">Estado</label>
 						<input type="text" class="form-control" name="estado" id="estado">
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-2">
 						<label for="telefone">Telefone</label>
-						<input type="text" class="form-control" name="telefone" id="telefone" ng-model="phoneNumber" ui-br-phone-number>
+						<input type="text" class="form-control" name="telefone" ng-model="phoneNumber1" ui-br-phone-number>
+					</div>
+					<div class="col-xs-2">
+						<label for="celular">Celular</label>
+						<input type="text" class="form-control" name="celular" ng-model="phoneNumber8" ui-br-phone-number>
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-xs-12"> 
 						<label for="endereco-anterior">Endereço Anterior</label>
@@ -77,7 +79,7 @@
 				<div class="row">
 					<div class="col-xs-2">
 						<label for="cep">CEP</label>
-						<input type="text" class="form-control" name="cep" id="cep">
+						<input type="text" class="form-control" name="cep" id="cep" ng-model="cep2" ui-br-cep-mask>
 					</div>
 					<div class="col-xs-4">
 						<label for="cidade">Cidade</label>
@@ -87,12 +89,15 @@
 						<label for="estado">Estado</label>
 						<input type="text" class="form-control" name="estado" id="estado">
 					</div>
-					<div class="col-xs-4">
-						<label for="telefone">Telefone</label>
-						<input type="text" class="form-control" name="telefone" id="telefone">
+					<div class="col-xs-2">
+						<label for="telefone">Telefone</label> 
+						<input type="text" class="form-control" name="telefone" ng-model="phoneNumber2" ui-br-phone-number>
+					</div>
+					<div class="col-xs-2">
+						<label for="celular">Celular</label>
+						<input type="text" class="form-control" name="celular" ng-model="phoneNumber9" ui-br-phone-number>
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-xs-12">
 						<h4>Filiação</h4>
@@ -106,18 +111,16 @@
 						<input type="text" class="form-control" name="mae" id="mae">
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-xs-4">
 						<label for="data-nascimento">Data de Nascimento</label>
-						<input type="date" class="form-control" name="data-nascimento" id="data-nascimento">
+						<input type="text" class="form-control j_datepicker" name="data-nascimento">
 					</div>
 					<div class="col-xs-8">
 						<label for="local">Local</label>
 						<input type="text" class="form-control" name="local" id="local">
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-xs-4">
 						<label for="identidade">Identidade</label>
@@ -152,11 +155,10 @@
 						</select>
 					</div>
 					<div class="col-xs-4">
-						<label for="cic">C.I.C.</label>
-						<input type="text" class="form-control" name="cic" id="cic">
+						<label for="cic">C.P.F</label>
+						<input type="text" class="form-control" name="cic" ng-model="initializedCpf1" ui-br-cpf-mask>
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-xs-3">
 						<label for="estado-civil">Estado Civil</label>
@@ -173,12 +175,30 @@
 						<label for="profissao">Profissão</label>
 						<input type="text" class="form-control" name="profissao" id="profissao">
 					</div>
-					</form>
+				</div>
+				<h4>Anexos</h4>
+				<div class="row">
+					<div class="col-xs-3">
+						<label for="identidade">Anexar: Identidade</label>
+						<input type="file" class="form-control" name="identidade" id="identidade">
+					</div>
+					<div class="col-xs-3">
+						<label for="cpf">Anexar: CPF</label>
+						<input type="file" class="form-control" name="cpf" id="cpf">
+					</div>
+					<div class="col-xs-3">
+						<label for="certidao-nasc">Anexar: Certidão de Nacimento</label>
+						<input type="file" class="form-control" name="certidao-nasc" id="certidao-nasc">
+					</div>
+					<div class="col-xs-3">
+						<label for="contra-cheque">Anexar: Contra-Cheque</label>
+						<input type="file" class="form-control" name="contra-cheque" id="contra-cheque" multiple>
+					</div>
 				</div>
 			</div>
 				
 		<div class="container tab-pane fade" id="menu1">
-			<h3>Dados Profissionais do Locatário</h3>	
+			<h3 class="title">Dados Profissionais do Locatário</h3>	
 					<div class="row">
 					  	<div class="col-xs-6">
 						    <label for="Empresa">Empresa</label>
@@ -193,7 +213,7 @@
 					<div class="row">
 						<div class="col-xs-2">
 							<label for="cep">CEP</label>
-							<input type="text" class="form-control" name="cep" id="cep">
+							<input type="text" class="form-control" name="cep" id="cep" ng-model="cep3" ui-br-cep-mask>
 						</div>
 						<div class="col-xs-4">
 							<label for="cidade">Cidade</label>
@@ -203,9 +223,13 @@
 							<label for="estado">Estado</label>
 							<input type="text" class="form-control" name="estado" id="estado">
 						</div>
-						<div class="col-xs-4">
+						<div class="col-xs-2">
 							<label for="telefone">Telefone</label>
-							<input type="text" class="form-control" name="telefone" id="telefone">
+							<input type="text" class="form-control" name="telefone" id="telefone" ng-model="phoneNumber3" ui-br-phone-number>
+						</div>
+						<div class="col-xs-2">
+							<label for="celular">Celular</label>
+							<input type="text" class="form-control" name="celular" ng-model="phoneNumber10" ui-br-phone-number>
 						</div>
 					</div>
 
@@ -216,24 +240,24 @@
 						</div>
 						<div class="col-xs-4">
 							<label for="data-admissao">Data de Admissão</label>
-							<input type="date" class="form-control" name="data-admissao" id="data-admissao">
+							<input type="text" class="form-control j_datepicker" name="data-admissao">
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-xs-6">
-							<label for="salario">Salário</label>
-							<input type="text" class="form-control" name="salario" id="salario" placeholder="Amount">
+							<label for="salario">Amount</label>
+							<input type="text" class="form-control" name="salario" id="salario" ng-model="money1" ui-money-mask>
 						</div>
 						<div class="col-xs-6">
-							<label for="outras-rendas">Outras Rendas</label>
-							<input type="text" class="form-control" name="outras-rendas" id="outras-rendas" placeholder="Amount">
+							<label for="outras-rendas">Amount</label>
+							<input type="text" class="form-control" name="outras-rendas" id="outras-rendas" ng-model="money" ui-money-mask>
 						</div>
 					</div>
 		</div>
 
 		<div class="container tab-pane fade" id="menu2">
-			<h3>Dados Pessoais do Cônjuge</h3>
+			<h3 class="title">Dados Pessoais do Cônjuge</h3>
 				<div class="row">
 					  <div class="col-xs-4">
 						    <label for="nome">Nome</label>
@@ -258,7 +282,7 @@
 					<div class="row">
 						<div class="col-xs-2">
 							<label for="cep">CEP</label>
-							<input type="text" class="form-control" name="cep" id="cep">
+							<input type="text" class="form-control" name="cep" id="cep" ng-model="cep4" ui-br-cep-mask>
 						</div>
 						<div class="col-xs-4">
 							<label for="cidade">Cidade</label>
@@ -268,9 +292,13 @@
 							<label for="estado">Estado</label>
 							<input type="text" class="form-control" name="estado" id="estado">
 						</div>
-						<div class="col-xs-4">
+						<div class="col-xs-2">
 							<label for="telefone">Telefone</label>
-							<input type="text" class="form-control" name="telefone" id="telefone">
+							<input type="text" class="form-control" name="telefone" id="telefone" ng-model="phoneNumber4" ui-br-phone-number>
+						</div>
+						<div class="col-xs-2">
+							<label for="celular">Celular</label>
+							<input type="text" class="form-control" name="celular" ng-model="phoneNumber11" ui-br-phone-number>
 						</div>
 					</div>
 
@@ -291,7 +319,7 @@
 					<div class="row">
 						<div class="col-xs-4">
 							<label for="data-nascimento">Data de Nascimento</label>
-							<input type="date" class="form-control" name="data-nascimento" id="data-nascimento">
+							<input type="text" class="form-control j_datepicker" name="data-nascimento">
 						</div>
 						<div class="col-xs-8">
 							<label for="local">Local</label>
@@ -333,8 +361,8 @@
 							</select>
 						</div>
 						<div class="col-xs-4">
-							<label for="cic">C.I.C.</label>
-							<input type="text" class="form-control" name="cic" id="cic">
+							<label for="cic">C.P.F</label>
+							<input type="text" class="form-control" name="cic" ng-model="initializedCpf2" ui-br-cpf-mask>
 						</div>
 					</div>
 
@@ -344,14 +372,33 @@
 							<input type="text" class="form-control" name="profissao" id="profissao">
 						</div>
 						<div class="col-xs-6">
-							<label for="salario">Salário</label>
-							<input type="text" class="form-control" name="salario" id="salario" placeholder="Amount">
+							<label for="salario">Amount</label>
+							<input type="text" class="form-control" name="salario" id="salario" ng-model="money2" ui-money-mask>
+						</div>
+					</div>
+					<h4>Anexos</h4>
+					<div class="row">
+						<div class="col-xs-3">
+							<label for="identidade">Anexar: Identidade</label>
+							<input type="file" class="form-control" name="identidade" id="identidade">
+						</div>
+						<div class="col-xs-3">
+							<label for="cpf">Anexar: CPF</label>
+							<input type="file" class="form-control" name="cpf" id="cpf">
+						</div>
+						<div class="col-xs-3">
+							<label for="certidao-nasc">Anexar: Certidão de Nacimento</label>
+							<input type="file" class="form-control" name="certidao-nasc" id="certidao-nasc">
+						</div>
+						<div class="col-xs-3">
+							<label for="contra-cheque">Anexar: Contra-Cheque</label>
+							<input type="file" class="form-control" name="contra-cheque" id="contra-cheque" multiple>
 						</div>
 					</div>
 		</div>
 
 		<div class="container tab-pane fade" id="menu3">
-			<h3>Dados Profissionais do Conjugê</h3>	
+			<h3 class="title">Dados Profissionais do Conjugê</h3>	
 					<div class="row">
 					  	<div class="col-xs-6">
 						    <label for="Empresa">Empresa</label>
@@ -366,7 +413,7 @@
 					<div class="row">
 						<div class="col-xs-2">
 							<label for="cep">CEP</label>
-							<input type="text" class="form-control" name="cep" id="cep">
+							<input type="text" class="form-control" name="cep" id="cep" ng-model="cep5" ui-br-cep-mask>
 						</div>
 						<div class="col-xs-4">
 							<label for="cidade">Cidade</label>
@@ -376,9 +423,13 @@
 							<label for="estado">Estado</label>
 							<input type="text" class="form-control" name="estado" id="estado">
 						</div>
-						<div class="col-xs-4">
+						<div class="col-xs-2">
 							<label for="telefone">Telefone</label>
-							<input type="text" class="form-control" name="telefone" id="telefone">
+							<input type="text" class="form-control" name="telefone" id="telefone" ng-model="phoneNumber5" ui-br-phone-number>
+						</div>
+						<div class="col-xs-2">
+							<label for="celular">Celular</label>
+							<input type="text" class="form-control" name="celular" ng-model="phoneNumber12" ui-br-phone-number>
 						</div>
 					</div>
 
@@ -389,26 +440,26 @@
 						</div>
 						<div class="col-xs-4">
 							<label for="data-admissao">Data de Admissão</label>
-							<input type="date" class="form-control" name="data-admissao" id="data-admissao">
+							<input type="text" class="form-control j_datepicker" name="data-admissao">
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-xs-6">
-							<label for="salario">Salário</label>
-							<input type="text" class="form-control" name="salario" id="salario" placeholder="Amount">
+							<label for="salario">Amount</label>
+							<input type="text" class="form-control" name="salario" id="salario" ng-model="money3" ui-money-mask>
 						</div>
 						<div class="col-xs-6">
-							<label for="outras-rendas">Outras Rendas</label>
-							<input type="text" class="form-control" name="outras-rendas" id="outras-rendas" placeholder="Amount">
+							<label for="outras-rendas">Amount</label>
+							<input type="text" class="form-control" name="outras-rendas" id="outras-rendas" ng-model="money" ui-money-mask>
 						</div>
 					</div>
 		</div>
 
 		<div class="container tab-pane fade" id=menu4>
-			<h3>Dados Complementares</h3>
+			<h3 class="title">Dados Complementares</h3>
+			<h4 class="subtitle">Possui Propriedades?</h4>
 			<div class="row">
-				<h4>Possui Propriedades?</h4>
 				<div class="col-xs-12">
 					<div class="radio-inline">
 						<label>
@@ -429,8 +480,8 @@
 				<textarea class="form-control" rows="4"></textarea>
 				</div>
 			</div>
+			<h4 class="subtitle">Possui Automóvel?</h4>
 			<div class="row">
-				<h4>Possui Automóvel?</h4>
 				<div class="col-xs-12">
 					<div class="radio-inline">
 						<label>
@@ -500,7 +551,7 @@
 				</div>
 				<div class="col-xs-2">
 					<label for="telefone">Telefone</label>
-					<input type="text" class="form-control" name="telefone" id="telefone">
+					<input type="text" class="form-control" name="telefone" id="telefone" ng-model="phoneNumber6" ui-br-phone-number>
 				</div>
 			</div>
 
@@ -515,7 +566,7 @@
 				</div>
 				<div class="col-xs-2">
 					<label for="telefone">Telefone</label>
-					<input type="text" class="form-control" name="telefone" id="telefone">
+					<input type="text" class="form-control" name="telefone" id="telefone" ng-model="phoneNumber7" ui-br-phone-number>
 				</div>
 			</div>
 
@@ -535,11 +586,11 @@
 				</div>
 				<div class="col-xs-2">
 					<label for="cliente-desde">Cliente Desde</label>
-					<input type="date" class="form-control" name="cliente-desde" id="cliente-desde">
+					<input type="text" class="form-control j_datepicker" name="cliente-desde">
 				</div>
 				<div class="col-xs-3">
 					<label for="telefone">Telefone</label>
-					<input type="text" class="form-control" name="telefone" id="telefone">
+					<input type="text" class="form-control" name="telefone" ng-model="phoneNumber" ui-br-phone-number> 
 				</div>
 			</div>
 
@@ -555,25 +606,42 @@
 				</div>
 				<div class="col-xs-3">
 					<label for="telefone">Telefone</label>
-					<input type="text" class="form-control" name="telefone" id="telefone">
+					<input type="text" class="form-control" name="telefone" ng-model="phoneNumber0" ui-br-phone-number>
 				</div>
 			</div>
+			<div class="checkbox">
+			   <label>
+			      <input type="checkbox" name="ok" value="sim"> CIENTE(S) DAS IMPLICAÇÕES LEGAIS ENVOLVIDAS , DECLARO QUE TODAS AS INFOMAÇÕES AQUI PRESTADAS SÃO VERÍDICAS.
+			    </label>
+			  </div>
 			<div class="row">
 				<div class="col-xs-12">
-				 	<button type="submit" class="btn btn-default">Submit</button>
+				 	<button type="submit" class="btn btn-default">Enviar Formulário</button>
 				</div>
 			</div>	
+			</form>
 		</div>
 	</div>
 
-
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/ui.datepicker-pt-BR.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.15/angular-locale_pt-br.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="angular-input-masks-master/src/angular-input-masks.br.js" ></script>
-
+	<script type="text/javascript" src="js/masks.js"></script>
+	<script>
+	$(function(){
+		$('.j_datepicker').datepicker({
+			showButtonPanel: true,
+			changeMonth: true,
+      		changeYear: true
+			}
+		);
+		$('#menu1').tab('show');
+	});
+		
+  	</script>
 	<script>
 		angular.module('form', ['ui.utils.masks']);
 	</script>

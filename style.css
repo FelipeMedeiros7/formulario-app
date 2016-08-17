@@ -1,6 +1,3 @@
 .form-control {
-	border-radius: initial;
-	border-left: solid;
-	border-left-color: #115317;
-	border-left-width: 5px;
+	border-radius: none;
 }

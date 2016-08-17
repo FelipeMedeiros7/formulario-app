@@ -1,0 +1,53 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.form-control {
+	border-radius: initial;
+	border-left: solid;
+	border-left-color: #115317;
+	border-left-width: 5px;
+}
+
+.container {
+	padding: 15px;
+}
+
+.nav-tabs>li>a {
+	border-radius: initial;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	color: #BF9E00;
+	text-transform: uppercase;
+}
+
+.title {
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+}
+
+.title:after {
+	content: url('../img/detail.png');
+	display: block;
+}
+
+.btn {
+	border-radius: initial;
+}
+
+.btn-default {
+	border-left-style: solid;
+	border-left-width: 5px;
+	border-left-color: #115317;
+	height: 40px;
+}
+
+.subtitle {
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+}
+
+label{
+	margin-top: 5px;
+}
